@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PrintLeftTreeBranch
+namespace QuestionsOnTrees
 {
     class Program
     {
