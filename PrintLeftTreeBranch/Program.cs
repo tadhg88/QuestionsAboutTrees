@@ -30,17 +30,17 @@ namespace PrintLeftTreeBranch
             findNodes.FindFirstVisibleNodes(root, 1);
             Console.WriteLine();
 
-            findNodes.maxLevel = 0;
+            findNodes.previousMaxLevel = 0;
             findNodes.FindLeftTreeNodes(root, 1);
 
-            findNodes.maxLevel = 0;
+            findNodes.previousMaxLevel = 0;
             findNodes.FindRightTreeNodes(root.Right, 1);
         }
     }
 
     public class FindNodes
     {
-        public int maxLevel = 0;
+        public int previousMaxLevel = 0;
 
         public void FindFirstVisibleNodes(Node root, int currentLevel)
         {
@@ -48,10 +48,10 @@ namespace PrintLeftTreeBranch
                 return;
 
             // If this is the first node of its level
-            if (maxLevel < currentLevel)
+            if (currentLevel > previousMaxLevel)
             {
                 Console.Write(root.Data + " ");
-                maxLevel = currentLevel;
+                previousMaxLevel = currentLevel;
             }
 
             FindFirstVisibleNodes(root.Left, currentLevel+1);
@@ -66,10 +66,10 @@ namespace PrintLeftTreeBranch
             int? itemToPrint = null;
 
             // If this is the first node of its level
-            if (maxLevel < currentLevel)
+            if (previousMaxLevel < currentLevel)
             {
                 itemToPrint = root.Data;
-                maxLevel = currentLevel;
+                previousMaxLevel = currentLevel;
             }
 
             FindLeftTreeNodes(root.Left, currentLevel + 1);
@@ -84,10 +84,10 @@ namespace PrintLeftTreeBranch
                 return;
 
             // If this is the first node of its level
-            if (maxLevel < currentLevel)
+            if (previousMaxLevel < currentLevel)
             {
                 Console.Write(root.Data + " ");
-                maxLevel = currentLevel;
+                previousMaxLevel = currentLevel;
             }
 
             FindRightTreeNodes(root.Right, currentLevel + 1);
