@@ -16,19 +16,23 @@ namespace QuestionsOnTrees
             //                        8
             Node root = CreateTree();
 
-
+            Console.WriteLine("Print nodes visible from left using Recursion");
             NodeFinder nodeFinder = new NodeFinder();
             nodeFinder.FindFirstVisibleNodes(root, 1);
             Console.WriteLine();
-
-            nodeFinder.PrintLeftViewNodes_UsingQueue(root);
             Console.WriteLine();
 
-            nodeFinder.previousMaxLevel = 0;
-            nodeFinder.FindLeftTreeNodes(root, 1);
+            Console.WriteLine("Print nodes visible from left using Queue");
+            nodeFinder.PrintLeftViewNodes_UsingQueue(root);
+            Console.WriteLine();
+            Console.WriteLine();
 
-            nodeFinder.previousMaxLevel = 0;
-            nodeFinder.FindRightTreeNodes(root.Right, 1);
+            nodeFinder.PrintTreeOutline(root);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            var sum = nodeFinder.SumTreeNodes(root);
+            Console.WriteLine("Sum: " + sum);
         }
 
         private static Node CreateTree()

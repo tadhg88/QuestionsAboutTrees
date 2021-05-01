@@ -67,7 +67,18 @@ namespace QuestionsOnTrees
             }
         }
 
-        public void FindLeftTreeNodes(Node root, int currentLevel)
+        public void PrintTreeOutline(Node root)
+        {
+            Console.WriteLine("Tree outline");
+
+            previousMaxLevel = 0;
+            FindLeftTreeNodes(root, 1);
+
+            previousMaxLevel = 0;
+            FindRightTreeNodes(root.Right, 1);
+        }
+
+        private void FindLeftTreeNodes(Node root, int currentLevel)
         {
             if (root == null)
                 return;
@@ -87,7 +98,7 @@ namespace QuestionsOnTrees
                 Console.Write(itemToPrint + " ");
         }
 
-        public void FindRightTreeNodes(Node root, int currentLevel)
+        private void FindRightTreeNodes(Node root, int currentLevel)
         {
             if (root == null)
                 return;
@@ -100,6 +111,17 @@ namespace QuestionsOnTrees
             }
 
             FindRightTreeNodes(root.Right, currentLevel + 1);
+        }
+
+        public int SumTreeNodes(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            var leftSum = SumTreeNodes(root.Left);
+            var rightSum = SumTreeNodes(root.Right);
+
+            return root.Data + leftSum + rightSum;
         }
 
     }
