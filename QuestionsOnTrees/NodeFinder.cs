@@ -124,5 +124,26 @@ namespace QuestionsOnTrees
             return root.Data + leftSum + rightSum;
         }
 
+        public int Fib(int position)
+        {
+            if (position <= 2)
+                return 1;
+
+            var fib1 = Fib(position - 1);
+            var fib2 = Fib(position - 2);
+
+            return fib1 + fib2;
+        }
+
+        public int GridTraveller(int columns, int rows)
+        {
+            if (columns == 1 && rows == 1)
+                return 1;
+            if (columns == 0 || rows == 0)
+                return 0;
+
+            return GridTraveller(columns - 1, rows) + GridTraveller(columns, rows - 1);
+        }
+
     }
 }

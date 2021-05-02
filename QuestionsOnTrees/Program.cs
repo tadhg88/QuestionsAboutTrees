@@ -33,6 +33,12 @@ namespace QuestionsOnTrees
 
             var sum = nodeFinder.SumTreeNodes(root);
             Console.WriteLine("Sum: " + sum);
+
+            var fib = nodeFinder.Fib(7);
+            Console.WriteLine("Fib: " + fib);
+
+            var gridTravellerResult = nodeFinder.GridTraveller(2, 3);
+            Console.WriteLine("GridTraveller: " + gridTravellerResult);
         }
 
         private static Node CreateTree()
