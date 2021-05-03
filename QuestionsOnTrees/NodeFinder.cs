@@ -161,5 +161,27 @@ namespace QuestionsOnTrees
 
             return false;
         }
+
+        public List<int> HowSum(int targetSum, int[] numbers)
+        {
+            if (targetSum == 0)
+                return new List<int>();
+            if (targetSum < 0)
+                return null;
+
+            foreach (int number in numbers)
+            {
+                int remainder = targetSum - number;
+                var remainderResult = HowSum(remainder, numbers);
+                if(remainderResult != null)
+                {
+                    remainderResult.Add(number);
+                    return remainderResult;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

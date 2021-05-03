@@ -42,6 +42,9 @@ namespace QuestionsOnTrees
 
             var canSum = nodeFinder.CanSum(5, new int[] { 4, 3 });
             Console.WriteLine("CanSum: " + canSum);
+
+            var howSum = nodeFinder.HowSum(8, new int[] { 2, 3, 5 });
+            Console.WriteLine("HowSum: " + string.Join(",", howSum ?? new List<int>()));
         }
 
         private static Node CreateTree()
