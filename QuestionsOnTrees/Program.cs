@@ -39,6 +39,9 @@ namespace QuestionsOnTrees
 
             var gridTravellerResult = nodeFinder.GridTraveller(2, 3);
             Console.WriteLine("GridTraveller: " + gridTravellerResult);
+
+            var canSum = nodeFinder.CanSum(5, new int[] { 4, 3 });
+            Console.WriteLine("CanSum: " + canSum);
         }
 
         private static Node CreateTree()

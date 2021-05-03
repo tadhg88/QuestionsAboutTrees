@@ -145,5 +145,21 @@ namespace QuestionsOnTrees
             return GridTraveller(columns - 1, rows) + GridTraveller(columns, rows - 1);
         }
 
+        public bool CanSum(int targetSum, int[] numbers)
+        {
+            if (targetSum == 0)
+                return true;
+            if (targetSum < 0)
+                return false;
+
+            foreach (int number in numbers)
+            {
+                int remainder = targetSum - number;
+                if (CanSum(remainder, numbers) == true)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
