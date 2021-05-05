@@ -183,5 +183,30 @@ namespace QuestionsOnTrees
             return null;
         }
 
+        public List<int> BestSum(int targetSum, int[] numbers)
+        {
+            if (targetSum == 0)
+                return new List<int>();
+            if (targetSum < 0)
+                return null;
+
+            List<int> shortest = null;
+
+            foreach (int number in numbers)
+            {
+                int remainder = targetSum - number;
+                var remainderResult = BestSum(remainder, numbers);
+                if (remainderResult != null)
+                {
+                    var remainderCombination = remainderResult;
+                    remainderCombination.Add(number);
+
+                    if(shortest == null || remainderCombination.Count < shortest.Count)
+                        shortest = remainderCombination;
+                }
+            }
+
+            return shortest;
+        }
     }
 }

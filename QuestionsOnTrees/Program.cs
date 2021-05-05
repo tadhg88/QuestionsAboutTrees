@@ -45,6 +45,9 @@ namespace QuestionsOnTrees
 
             var howSum = nodeFinder.HowSum(8, new int[] { 2, 3, 5 });
             Console.WriteLine("HowSum: " + string.Join(",", howSum ?? new List<int>()));
+
+            var bestSum = nodeFinder.BestSum(8, new int[] { 2, 3, 5 });
+            Console.WriteLine("BestSum: " + string.Join(",", bestSum ?? new List<int>()));
         }
 
         private static Node CreateTree()
