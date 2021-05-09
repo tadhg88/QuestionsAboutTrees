@@ -48,6 +48,12 @@ namespace QuestionsOnTrees
 
             var bestSum = nodeFinder.BestSum(8, new int[] { 2, 3, 5 });
             Console.WriteLine("BestSum: " + string.Join(",", bestSum ?? new List<int>()));
+
+            var canConstruct = nodeFinder.CanConstruct("ab", new List<string> {"a", "b"});
+            Console.WriteLine("CanConstruct: " + string.Join(",", canConstruct));
+
+            var canConstruct1 = nodeFinder.CanConstruct("ab", new List<string> { "ad", "b" });
+            Console.WriteLine("CanConstruct: " + string.Join(",", canConstruct1));
         }
 
         private static Node CreateTree()

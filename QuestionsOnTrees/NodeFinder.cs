@@ -208,5 +208,28 @@ namespace QuestionsOnTrees
 
             return shortest;
         }
+
+        public bool CanConstruct(string target, List<string> words)
+        {
+            if(string.IsNullOrEmpty(target))
+            {
+                return true;
+            }
+
+            foreach(string word in words)
+            {
+                if (target.StartsWith(word))
+                {
+                    string newTarget = target.Replace(word, string.Empty);
+
+                    if(CanConstruct(newTarget, words))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }
